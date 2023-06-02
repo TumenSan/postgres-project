@@ -1,12 +1,11 @@
-/* eslint-disable prettier/prettier */
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class users {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('text', { nullable: true })
   name: string;
 
   @Column()

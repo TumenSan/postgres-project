@@ -1,15 +1,21 @@
-/* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
 
-import { User } from './user.entity';
+import { users } from './user.entity';
 import { UserService } from './user.service';
 
 @Controller('users')
-export class TreeController {
-  constructor(private readonly treeService: UserService) {}
+export class UserController {
+  constructor(private readonly userService: UserService) {}
 
   @Get()
-  getUsers(): Promise<User[]> {
-    return this.treeService.findAll();
+  getUsers(): Promise<users[]> {
+    return this.userService.findAll();
   }
+
+  /*
+  @Get()
+  getHello(): string {
+    return 'Hello World user!';
+  }
+  */
 }

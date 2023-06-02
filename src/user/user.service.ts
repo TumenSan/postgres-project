@@ -1,21 +1,20 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import { users } from './user.entity';
 
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
+    @InjectRepository(users)
+    private userRepository: Repository<users>,
   ) {}
 
-  findAll(): Promise<User[]> {
+  findAll(): Promise<users[]> {
     return this.userRepository.find();
   }
 
-  findOne(id: number): Promise<User> {
+  findOne(id: number): Promise<users> {
     return this.userRepository.findOneBy({ id });
   }
 
